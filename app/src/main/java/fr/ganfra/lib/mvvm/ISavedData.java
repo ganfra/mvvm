@@ -2,7 +2,7 @@ package fr.ganfra.lib.mvvm;
 
 import android.os.Parcelable;
 
-public interface ISavedViewModel {
+public interface ISavedData {
 
     final String EXTRA_VIEW_MODEL_DATA = "EXTRA_VIEW_MODEL_DATA";
 
