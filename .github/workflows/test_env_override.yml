@@ -17,4 +17,4 @@ jobs:
 
       - name: "Log envs"
         run: |
-          echo "$ANDROID_NDK_HOME"
+          echo "$ANDROID_NDK_TOOLCHAIN_DIR"
