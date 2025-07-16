@@ -6,10 +6,6 @@ jobs:
   greeting_job:
     runs-on: ubuntu-24.04
     steps:
-      - name: "Setup envs"
-        run: |
-          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> $GITHUB_ENV
-        
       - name: "Log envs"
         run: |
           find $ANDROID_NDK_HOME -maxdepth 1
