@@ -8,13 +8,8 @@ jobs:
     steps:
       - name: "Setup envs"
         run: |
-          export ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/28.2.13676358
-          echo "ANDROID_NDK_TOOLCHAIN_DIR=$ANDROID_NDK_HOME/toolchains" >> $GITHUB_ENV
-          export ANDROID_NDK_TOOLCHAIN_DIR=$ANDROID_NDK_HOME/toolchains
-          echo "Toolchain dir: $ANDROID_NDK_TOOLCHAIN_DIR."
-          echo "Contents:"
-          find $ANDROID_NDK_TOOLCHAIN_DIR -maxdepth 1
-
+          echo "ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/28.2.13676358" >> $GITHUB_ENV
+        
       - name: "Log envs"
         run: |
-          echo "$ANDROID_NDK_TOOLCHAIN_DIR"
+          find $ANDROID_NDK_HOME -maxdepth 1
