@@ -4,7 +4,6 @@ on: workflow_dispatch
 
 env:
   DAY_OF_WEEK: Monday
-  ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_LATEST_HOME }}
 
 jobs:
   greeting_job:
@@ -15,6 +14,6 @@ jobs:
       - name: "Say Hello Mona it's Monday"
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
         run: 
-          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK ndk:$ANDROID_NDK_HOME"
+          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK ndk:$ANDROID_NDK_HOME latest ndk:$ANDROID_NDK_LATEST_HOME"
         env:
           First_Name: Mona
