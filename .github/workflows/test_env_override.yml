@@ -2,19 +2,19 @@ name: Conditional env variable
 
 on: workflow_dispatch
 
-env:
-  DAY_OF_WEEK: Monday
-
 jobs:
   greeting_job:
     runs-on: ubuntu-24.04
-    env:
-      Greeting: Hello
-      ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_LATEST_HOME }}
     steps:
-      - name: "Say Hello Mona it's Monday"
-        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+      - name: "Setup envs"
         run: |
-          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK ndk:$ANDROID_NDK_HOME latest ndk:$ANDROID_NDK_LATEST_HOME"
-        env:
-          First_Name: Mona
+          export ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk/28.2.13676358
+          echo "ANDROID_NDK_TOOLCHAIN_DIR=$ANDROID_NDK_HOME/toolchains" >> $GITHUB_ENV
+          export ANDROID_NDK_TOOLCHAIN_DIR=$ANDROID_NDK_HOME/toolchains
+          echo "Toolchain dir: $ANDROID_NDK_TOOLCHAIN_DIR."
+          echo "Contents:"
+          find $ANDROID_NDK_TOOLCHAIN_DIR -maxdepth 1
+
+      - name: "Log envs"
+        run: |
+          echo "$ANDROID_NDK_HOME"
