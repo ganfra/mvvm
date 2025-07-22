@@ -3,15 +3,17 @@ name: Conditional env variable
 on: workflow_dispatch
 
 jobs:
-  greeting_job:
+  configure_ndk:
     runs-on: ubuntu-24.04
     env:
       NDK_VERSION: 28.2.13676358
     steps:
       - name: Configure android ndk
         run: |
+          echo "NDK : $NDK_VERSION"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION" >> $GITHUB_ENV
-          if [ -d "ANDROID_NDK_HOME" ]; then
+          if [ -d "$ANDROID_NDK_HOME" ]; then
             echo "Using ndk $ANDROID_NDK_HOME"
           else
             echo "$ANDROID_NDK_HOME not found, abort."
