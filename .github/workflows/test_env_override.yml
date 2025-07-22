@@ -11,12 +11,13 @@ jobs:
       - name: Configure android ndk
         run: |
           echo "NDK : $NDK_VERSION"
-          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION" >> $GITHUB_ENV
-          echo "$ANDROID_NDK_HOME"
+          export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION
           if [ -d "$ANDROID_NDK_HOME" ]; then
             echo "Using ndk $ANDROID_NDK_HOME"
           else
             echo "$ANDROID_NDK_HOME not found, abort."
             exit 1
           fi    
+      - name: Check android ndk
+        run: echo "Ndk version is $ANDROID_NDK_HOME"
