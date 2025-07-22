@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Configure android ndk
         run: |
-          export NDK_PATH=$ANDROID_HOME/ndk/$NDK_VERSION
+          NDK_PATH=$ANDROID_HOME/ndk/$NDK_VERSION
           if [ -d "$NDK_PATH" ]; then
             echo "ANDROID_NDK_HOME=$NDK_PATH" >> $GITHUB_ENV
             echo "Using ndk $NDK_PATH"
