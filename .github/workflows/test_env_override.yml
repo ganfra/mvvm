@@ -13,6 +13,7 @@ jobs:
           echo "NDK : $NDK_VERSION"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION" >> $GITHUB_ENV
+          echo "$ANDROID_NDK_HOME"
           if [ -d "$ANDROID_NDK_HOME" ]; then
             echo "Using ndk $ANDROID_NDK_HOME"
           else
