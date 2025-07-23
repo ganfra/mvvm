@@ -8,6 +8,15 @@ jobs:
     env:
       NDK_VERSION: 28.2.13676358
     steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin' # See 'Supported distributions' for available options
+
+      - name: Install android sdk
+        uses: malinskiy/action-android/install-sdk@release/0.1.4
+        
       - name: Configure android ndk
         run: |
           NDK_PATH=$ANDROID_HOME/ndk/$NDK_VERSION
